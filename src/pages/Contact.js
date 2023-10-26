@@ -106,14 +106,7 @@ const Contact = () => {
             <p className='flex gap-2'><span><img  className='bg-white rounded-full h-[2rem] w-[2rem] p-1' src={call}/> </span>+91-9881180488 </p>
           </div>
         </AnimatedPage>
-
-      {/* <div class="container">
-        <div class="glitch" data-text=""></div>
-        {/* <p class="subtitle">IMPRACTICAL DEVELOPER</p> */}
-      {/* </div>
-  <div class="scanlines"></div> */}
-      
-      
+ 
     </div>
   )
 }

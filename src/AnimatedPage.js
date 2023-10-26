@@ -15,7 +15,7 @@ const AnimatedPage = ({ children }) => {
       setTimeout(() => {
         setIsGlitching(false);
         controls.start({ opacity: 1 });
-      }, 2500); // Adjust the time to control how long the glitch lasts
+      }, 2500); 
     }
   }, [controls, isGlitching]);
 
