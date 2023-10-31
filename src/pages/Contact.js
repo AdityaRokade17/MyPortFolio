@@ -33,6 +33,28 @@ const Contact = () => {
     event.preventDefault();
     console.log("Form Give DAta")
     console.log(formData);
+
+
+    //send form data to backend api
+    fetch(`${process.env.REACT_APP_BASE_URL}/sendmessage` , {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', // Set the content type to JSON
+      },
+      body: JSON.stringify(formData), // Convert the form data to JSON
+    })
+    .then(response => {
+      if (response.ok) {
+        // The request was successful
+        console.log('Message sent successfully');
+      } else {
+        // Handle errors here
+        console.error('Failed to send message');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
   return (
     <div className='min-h-[100vh] flex flex-col sm:flex-row w-full bg-gradient-to-r from-gray-700 via-gray-900 to-black'>
