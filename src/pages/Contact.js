@@ -33,7 +33,7 @@ const Contact = () => {
     event.preventDefault();
     console.log("Form Give DAta")
     console.log(formData);
-    json.stringify(formData)
+   
 
 
     //send form data to backend api
