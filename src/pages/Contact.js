@@ -7,6 +7,7 @@ import mail from "../Assets/icons8-mail-96.png";
 import call from  "../Assets/icons8-phone-100 (1).png";
 import AnimatedPage from '../AnimatedPage';
 import '../pages/contact.css';
+import { alert } from '@material-tailwind/react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,12 +16,20 @@ const Contact = () => {
     comment: "",
   });
 
+
+
   function changeHandler(event) {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
+  }
+
+  function alertmsg() {
+    const message = `Hello ${formData.name}, please contact us through phone or email at the contact section. We are currently under maintenance.`;
+    window.alert(message);
+    console.log('alertmsg function called');
   }
 
   const handleSubmit = async (event) => {
@@ -32,25 +41,28 @@ const Contact = () => {
       comment: formData.comment,
     };
 
-    fetch("https://portfolio-backend-livid-gamma.vercel.app/sendmessage", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(data),
-})
-  .then((response) => {
-    if (response.ok) {
-      // The request was successful
-      console.log("Message sent successfully");
-    } else {
-      // Handle errors here
-      console.error("Failed to send message");
-    }
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
+    
+
+    
+
+        //     fetch("https://portfolio-backend-livid-gamma.vercel.app/sendmessage", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(data),
+        // })
+        //   .then((response) => {
+        //     if (response.ok) {
+        //       // The request was successful
+        //       console.log("Message sent successfully");
+        //     } else {
+        //       // Handle errors here
+        //       console.error("Failed to send message");
+        //     }}
+    // .catch((error) => {
+    //     console.error("Error:", error);
+    // });
   };
 
   return (
@@ -85,7 +97,7 @@ const Contact = () => {
                 value={formData.comment}
                 className='border border-slate-600 bg-transparent p-2 rounded-lg text-white'
               ></textarea>
-              <input type="submit" value="Send Message" className='bg-white w-fit p-2 rounded-lg cursor-pointer hover:bg-gray-500 hover:text-white hover:scale-90 hover:transition duration-300' />
+              <input onClick={alertmsg} type="submit" value="Send Message" className='bg-white w-fit p-2 rounded-lg cursor-pointer hover:bg-gray-500 hover:text-white hover:scale-90 hover:transition duration-300' />
             </form>
           </div>
           <div className='flex flex-col gap-3 mt-[3rem]'>
@@ -109,11 +121,11 @@ const Contact = () => {
           <p>Feel free to get in touch with me, I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
           <p className='flex gap-2'>
             <span><img className='bg-white rounded-full h-[2rem] w-[2rem] p-1' src={mail} alt="email icon" /></span>
-            <a href="mailto:adityarokade176@gmail.com">adityarokade176@gmail.com</a>
+            <a href="mailto:adityarokade176@gmail.com" className='arrow'>adityarokade176@gmail.com</a>
           </p>
           <p className='flex gap-2'>
             <span><img  className='bg-white rounded-full h-[2rem] w-[2rem] p-1' src={call} alt="phone icon" /></span>
-            <a href="tel:+919881180488">+91-9881180488</a>
+            <a href="tel:+919881180488" className='arrow'>+91-9881180488</a>
           </p>
         </div>
       </AnimatedPage>
