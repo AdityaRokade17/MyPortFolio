@@ -67,7 +67,7 @@ const Contact = () => {
                 <h1 className='font-extrabold text-[#e5e7eb] text-[2rem] sm:text-[3rem] tracking-[0.30rem] mb-4 hero glitch layers' data-text="Contact">Contact.</h1>
                 <div className='w-[80%] flex-col'>
 
-                    <form onSubmit={submitHandler} className='flex flex-col gap-3'>
+                    <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
                       <input
                         type="text"
                         placeholder="Name"
