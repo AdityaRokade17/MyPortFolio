@@ -36,7 +36,7 @@ const Contact = () => {
 
 
     //send form data to backend api
-    fetch(`${process.env.REACT_APP_BASE_URL}/sendmessage` , {
+    fetch(`https://portfolio-backend-livid-gamma.vercel.app/api/v1/sendmessage` , {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', // Set the content type to JSON
@@ -70,7 +70,7 @@ const Contact = () => {
                         placeholder="Name"
                         onChange={changeHandler}
                         name="name"
-                        value={formData.firstName}
+                        value={formData.name}
                         className='border border-slate-600 bg-transparent p-2 rounded-lg text-white'
                       />
 
@@ -90,7 +90,7 @@ const Contact = () => {
                         rows="5"
                         placeholder="Message"
                         onChange={changeHandler}
-                        value={formData.value}
+                        value={formData.comment}
                         className='border border-slate-600 bg-transparent p-2 rounded-lg text-white'
                       ></textarea>
 
