@@ -8,6 +8,8 @@ import call from  "../Assets/icons8-phone-100 (1).png";
 import AnimatedPage from '../AnimatedPage';
 import '../pages/contact.css';
 import { alert } from '@material-tailwind/react';
+import { toast } from 'react-toastify';
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -26,11 +28,22 @@ const Contact = () => {
     }));
   }
 
-  function alertmsg() {
-    const message = `Hello ${formData.name}, please contact us through phone or email at the contact section. We are currently under maintenance.`;
-    window.alert(message);
-    console.log('alertmsg function called');
-  }
+  const alertmsg = () => {
+    const message = (
+      <div className=''>
+        <p>Hello <strong>{formData.name}</strong>,</p>
+        <p>I apologize for any inconvenience. Please feel free to contact me directly via email or phone. Your message is important to us. Thank you!</p>
+      </div>
+    );
+    // Show the toast notification
+    toast.info(message, {
+      position: 'top-right', // Set the position
+      autoClose: 5000, // Close the toast after 5 seconds (adjust as needed)
+      hideProgressBar: false, // Show progress bar
+      closeOnClick: true, // Close the toast when clicked
+      pauseOnHover: true, // Pause on hover
+    });
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
