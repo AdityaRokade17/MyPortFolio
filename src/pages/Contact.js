@@ -1,7 +1,7 @@
 import React from 'react'
 import Social from "../components/Social"
 import rightarrow from "../Assets/arrow.png"
-import { NavLink } from 'react-router-dom'
+import { NavLink, json } from 'react-router-dom'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import mail from "../Assets/icons8-mail-96.png"
@@ -33,11 +33,12 @@ const Contact = () => {
     event.preventDefault();
     console.log("Form Give DAta")
     console.log(formData);
+    json.stringify(formData)
 
 
     //send form data to backend api
-    fetch(`https://portfolio-backend-livid-gamma.vercel.app/api/v1/sendmessage` , {
-      method: 'GET',
+    fetch(`${process.env.REACT_APP_BASE_URL}/sendmessage` , {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json', // Set the content type to JSON
       },
