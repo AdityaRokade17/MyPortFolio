@@ -112,9 +112,8 @@ const Contact = () => {
             <a href="mailto:adityarokade176@gmail.com">adityarokade176@gmail.com</a>
           </p>
           <p className='flex gap-2'>
-          <a href="tel:+919881180488">
             <span><img  className='bg-white rounded-full h-[2rem] w-[2rem] p-1' src={call} alt="phone icon" /></span>
-            +91-9881180488</a>
+            <a href="tel:+919881180488">+91-9881180488</a>
           </p>
         </div>
       </AnimatedPage>
