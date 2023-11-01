@@ -28,35 +28,37 @@ const Contact = () => {
     });
   }
 
-  function submitHandler(event)
-  {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form Give DAta")
-    console.log(formData);
-   
 
+    // Data to send to the server
+    const data = {
+      name: formData.name,
+      email: formData.email,
+      comment: formData.comment,
+    };
 
-    //send form data to backend api
-    fetch(`${process.env.REACT_APP_BASE_URL}/sendmessage` , {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json', // Set the content type to JSON
-      },
-      body: JSON.stringify(formData), // Convert the form data to JSON
-    })
-    .then(response => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/sendmessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
       if (response.ok) {
-        // The request was successful
         console.log('Message sent successfully');
+        // You can optionally reset the form here
+        setFormData({ name: '', email: '', comment: '' });
       } else {
-        // Handle errors here
-        console.error('Failed to send message');
+        const errorData = await response.json();
+        console.error('Failed to send message:', errorData.message);
       }
-    })
-    .catch(error => {
+    } catch (error) {
       console.error('Error:', error);
-    });
-  }
+    }
+  };
   return (
     <div className='min-h-[100vh] flex flex-col sm:flex-row w-full bg-gradient-to-r from-gray-700 via-gray-900 to-black'>
       
