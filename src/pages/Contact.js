@@ -37,7 +37,7 @@ const Contact = () => {
 
     //send form data to backend api
     fetch(`https://portfolio-backend-livid-gamma.vercel.app/api/v1/sendmessage` , {
-      method: 'POST',
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json', // Set the content type to JSON
       },
