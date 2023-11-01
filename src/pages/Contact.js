@@ -32,7 +32,7 @@ const Contact = () => {
       comment: formData.comment,
     };
 
-    fetch("https://portfolio-backend-livid-gamma.vercel.app/api/v1/sendmessage", {
+    fetch("https://portfolio-backend-livid-gamma.vercel.app/sendmessage", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
