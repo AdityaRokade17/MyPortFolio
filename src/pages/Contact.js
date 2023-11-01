@@ -32,25 +32,25 @@ const Contact = () => {
       comment: formData.comment,
     };
 
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/sendmessage`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        console.log('Message sent successfully');
-        setFormData({ name: '', email: '', comment: '' });
-      } else {
-        const errorData = await response.json();
-        console.error('Failed to send message:', errorData.message);
-      }
-    } catch (error) {
-      console.error('Error:', error);
+    fetch("https://portfolio-backend-livid-gamma.vercel.app/api/v1/sendmessage", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(formData),
+})
+  .then((response) => {
+    if (response.ok) {
+      // The request was successful
+      console.log("Message sent successfully");
+    } else {
+      // Handle errors here
+      console.error("Failed to send message");
     }
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
   };
 
   return (
