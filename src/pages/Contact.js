@@ -109,11 +109,11 @@ const Contact = () => {
           <p>Feel free to get in touch with me, I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
           <p className='flex gap-2'>
             <span><img className='bg-white rounded-full h-[2rem] w-[2rem] p-1' src={mail} alt="email icon" /></span>
-            adityarokade176@gmail.com
+            <a href="mailto:adityarokade176@gmail.com">adityarokade176@gmail.com</a>
           </p>
           <p className='flex gap-2'>
             <span><img  className='bg-white rounded-full h-[2rem] w-[2rem] p-1' src={call} alt="phone icon" /></span>
-            +91-9881180488
+            <a href="tel:+919881180488">+91-9881180488</a>
           </p>
         </div>
       </AnimatedPage>
