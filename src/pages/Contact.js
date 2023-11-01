@@ -32,7 +32,7 @@ const Contact = () => {
     const message = (
       <div className=''>
         <p>Hello <strong>{formData.name}</strong>,</p>
-        <p>I apologize for any inconvenience. Please feel free to contact me directly via email or phone. Your message is important to us. Thank you!</p>
+        <p>I apologize for any inconvenience. Please feel free to contact me directly via email or phone. Your message is important to me. Thank you!</p>
       </div>
     );
     // Show the toast notification
